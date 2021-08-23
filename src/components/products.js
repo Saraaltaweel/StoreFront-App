@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import {Container,Typography,Grid,Card,CardMedia,CardContent,makeStyles} from '@material-ui/core/';
-import { increment } from '../store/products-reducer';
+import {Container,Typography,Grid,Card,CardMedia,CardContent,makeStyles,CardActions,Button} from '@material-ui/core/';
+import { increment } from '../store/actions';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const Status = (props) => {
+const Products = (props) => {
   const classes = useStyles();
   return (
     <Container className={classes.cardGrid} maxWidth="md">
@@ -32,8 +32,27 @@ const Status = (props) => {
                   <Typography gutterBottom variant="h5" component="h2">
                     {product.name}
                   </Typography>
-                  <Typography>Price: ${product.price}</Typography>
+                  <Typography className='price'>Price: ${product.price}</Typography>
+                  <Typography className='stock'>
+                    {product.inStock > 0
+                      ? `In stock, ${product.inStock} items left`
+                      : 'Out of Stock'}
+                  </Typography>
                 </CardContent>
+                <CardActions>
+                  <Button
+                  variant="contained"
+                    size="big"
+                    color="defualt"
+                    onClick={() => props.increment(product)}
+                    disabled={product.inStock > 0 ? false : true}
+                  >
+                    ADD TO CART
+                  </Button>
+                  <Button variant="contained" size="big" color="defualt">
+                    VIEW DETAILS
+                  </Button>
+                </CardActions>
               </Card>
             </Grid>
           );
@@ -45,4 +64,4 @@ const Status = (props) => {
 
 const mapStateToProps = (state) => ({ products: state.products });
 const mapDispatchToProps = { increment };
-export default connect(mapStateToProps, mapDispatchToProps)(Status);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

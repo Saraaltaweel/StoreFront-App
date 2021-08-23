@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import { Button,Grid} from '@material-ui/core';
-import {active} from '../store/categories-reducer.js'
-
+import {active} from '../store/actions'
+import '../App.css'
 const activeCategories=(props)=>{
     return(
         <div>
@@ -9,8 +9,8 @@ const activeCategories=(props)=>{
                 {
                     props.activeList.categories.map((category)=>{
                         return(
-                            <Grid  key={category.name}>
-                                <Button
+                            <Grid item key={category.name}>
+                                <Button className='type' variant="contained" color="secondary"
                                  onClick={()=>props.active(category.name)}
                                 >{category.display_name}</Button>
 

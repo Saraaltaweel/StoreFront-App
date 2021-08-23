@@ -3,7 +3,7 @@ import { Typography, Link, makeStyles } from '@material-ui/core/';
 const useStyles = makeStyles((theme) => ({
   footer: {
     color: 'white',
-    backgroundColor: 'grey',
+    backgroundColor: '#06623c65',
     padding: theme.spacing(5),
   },
 }));

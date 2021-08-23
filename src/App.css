@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 .App {
   text-align: center;
 }
@@ -35,4 +36,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+*{
+  font-family: 'Caveat', cursive !important;
+
+}
+body{
+  background-color:#f6f6787e !important;
+}
+
+
+header{
+  background-color: #06623B !important;
+}
+.type{
+  background-color: #FFA34D !important;
+  color: black!important;
+}
+.price{
+  color:#ED6663 !important;
+}
+.stock{
+  color:#5B8C5A !important;
+}
+.cart{
+  background-color: #06623cb7!important;
+  color:white !important;
 }
