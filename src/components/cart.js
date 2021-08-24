@@ -4,7 +4,6 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import { increment, show, decrement } from '../store/actions';
 import '../App.css';
-import DeleteIcon from '@material-ui/icons/Delete';
  
   const SimpleCart = (props) => {
     let display = props.cart.display || [];
@@ -48,16 +47,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
                     </Typography >
                     <Typography variant="body1">
                     ${(product.count + 1) * product.price}
-                    <DeleteIcon
-                      color="secondary"
-                      onClick={() => props.decrement(product)}
-                      style={{
-                        cursor: 'pointer',
-                        paddingTop: '5px',
-                      }}
-                    />
+                    <DeleteOutlinedIcon onClick={() => props.decrement(product)}/>
                   </Typography>
-                    {/* <DeleteOutlinedIcon onClick={() => props.decrement(product)}/> */}
                   </Grid>
                 </ListItem>
               );
