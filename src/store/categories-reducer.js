@@ -6,8 +6,8 @@ let initialState = {
         description: 'Welcome to Food Section',
       },
       {
-        name: 'drinks',
-        display_name: 'Drinks',
+        name: 'electronics',
+        display_name: 'Electronics',
         description: 'Welcome to Drinks Section',
       },
     ],

@@ -45,7 +45,10 @@ import '../App.css';
                     <Typography variant="h6">
                       <strong>{product.name}</strong> ({product.count + 1})
                     </Typography >
+                    <Typography variant="body1">
+                    ${(product.count + 1) * product.price}
                     <DeleteOutlinedIcon onClick={() => props.decrement(product)}/>
+                  </Typography>
                   </Grid>
                 </ListItem>
               );
