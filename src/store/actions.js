@@ -1,3 +1,22 @@
+import superagent from 'superagent';
+
+export const getRemoteData = function (api) {
+  return (dispatch) => {
+    return superagent
+      .get(api)
+      .then((res) => {
+        dispatch(getProducts({ results: res.body.products }));
+      })
+      .catch((e) => console.error(e));
+  };
+};
+
+export const getProducts = (products) => {
+  return {
+    type: 'GET',
+    payload: products.results,
+  };
+};
 export const active = (name) => {
     return {
       type: 'ACTIVE',
